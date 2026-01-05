@@ -1,0 +1,111 @@
+Traceback (most recent call last):
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_tool_manager.py", line 167, in _call_tool
+    args_dict = validator.validate_json(
+        call.args or '{}', allow_partial=pyd_allow_partial, context=ctx.validation_context
+    )
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for QuestionBank
+questions.0
+  Input should be an object [type=model_type, input_value='Solve the system of equa...2y = 7 and 4x - 5y = -6', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/model_type
+questions.1
+  Input should be an object [type=model_type, input_value='A rectangle has a length...sions of the rectangle.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/model_type
+questions.2
+  Input should be an object [type=model_type, input_value='Simplify the expression:...x + 5) - (x^2 + 7x - 2)', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/model_type
+questions.3
+  Input should be an object [type=model_type, input_value='Factor the quadratic expression: 2x^2 + 5x - 3', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/model_type
+questions.4
+  Input should be an object [type=model_type, input_value='Solve the inequality: |2x - 1| < 5', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/model_type
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/surendra/Documents/Learning/pydanticai/main_02.py", line 90, in main
+    result = await agent.run("Generate 5 Advanced Questions on Algebra 1 for Grade 9 student")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/agent/abstract.py", line 258, in run
+    async with self.iter(
+               ~~~~~~~~~^
+        user_prompt=user_prompt,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        builtin_tools=builtin_tools,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as agent_run:
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/agent/__init__.py", line 705, in iter
+    async with graph.iter(
+               ~~~~~~~~~~^
+        inputs=user_prompt_node,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        infer_name=False,
+        ^^^^^^^^^^^^^^^^^
+    ) as graph_run:
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_graph/beta/graph.py", line 270, in iter
+    async with GraphRun[StateT, DepsT, OutputT](
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        graph=self,
+        ^^^^^^^^^^^
+    ...<3 lines>...
+        traceparent=traceparent,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as graph_run:
+    ^
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_graph/beta/graph.py", line 423, in __aexit__
+    await self._async_exit_stack.__aexit__(exc_type, exc_val, exc_tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 768, in __aexit__
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 749, in __aexit__
+    cb_suppress = cb(*exc_details)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_graph/beta/graph.py", line 981, in _unwrap_exception_groups
+    raise exception
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_graph/beta/graph.py", line 750, in _run_tracked_task
+    result = await self._run_task(t_)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_graph/beta/graph.py", line 782, in _run_task
+    output = await node.call(step_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_graph/beta/step.py", line 253, in _call_node
+    return await node.run(GraphRunContext(state=ctx.state, deps=ctx.deps))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_agent_graph.py", line 584, in run
+    async with self.stream(ctx):
+               ~~~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 221, in __aexit__
+    await anext(self.gen)
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_agent_graph.py", line 598, in stream
+    async for _event in stream:
+        pass
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_agent_graph.py", line 724, in _run_stream
+    async for event in self._events_iterator:
+        yield event
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_agent_graph.py", line 685, in _run_stream
+    async for event in self._handle_tool_calls(ctx, tool_calls):
+        yield event
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_agent_graph.py", line 740, in _handle_tool_calls
+    async for event in process_tool_calls(
+    ...<8 lines>...
+        yield event
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_agent_graph.py", line 917, in process_tool_calls
+    ctx.state.increment_retries(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        ctx.deps.max_result_retries, error=e, model_settings=ctx.deps.model_settings
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/surendra/Documents/Learning/pydanticai/.venv/lib/python3.13/site-packages/pydantic_ai/_agent_graph.py", line 122, in increment_retries
+    raise exceptions.UnexpectedModelBehavior(message) from error
+pydantic_ai.exceptions.UnexpectedModelBehavior: Exceeded maximum retries (3) for output validation
+Error: Exceeded maximum retries (3) for output validation

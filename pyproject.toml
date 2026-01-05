@@ -1,0 +1,19 @@
+[project]
+name = "pydanticai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "google-adk>=1.14.1",
+    "isort>=7.0.0",
+    "logfire>=4.16.0",
+    "motor>=3.7.1",
+    "pydantic-ai>=1.39.0",
+    "python-dotenv>=1.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]
