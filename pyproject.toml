@@ -9,6 +9,7 @@ dependencies = [
     "isort>=7.0.0",
     "logfire>=4.16.0",
     "motor>=3.7.1",
+    "pillow>=12.1.0",
     "pydantic-ai>=1.39.0",
     "python-dotenv>=1.2.1",
 ]
